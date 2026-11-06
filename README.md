@@ -2,6 +2,7 @@
 
 **Materia:** Programación Funcional  
 **Actividad:** Trabajo de consulta: funciones anónimas
+
 **Estudiante:** Jesús David Maldonado Zambrano
 
 ## Introducción
