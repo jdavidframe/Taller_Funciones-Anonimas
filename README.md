@@ -2,6 +2,7 @@
 
 **Materia:** Programación Funcional  
 **Actividad:** Trabajo de consulta: funciones anónimas
+**Estudiante:** Jesús David Maldonado Zambrano
 
 ## Introducción
 
@@ -25,7 +26,7 @@ Las funciones anónimas no se usan únicamente en ejercicios de clase. Aparecen 
 
 #### ¿Qué es Apache Spark?
 
-Apache Spark **no es una empresa**. Es un motor de procesamiento de datos de código abierto, desarrollado como proyecto de la Apache Software Foundation. Sirve para trabajar con grandes volúmenes de información, incluso cuando el procesamiento necesita repartirse entre varias computadoras.
+Apache Spark es un motor de procesamiento de datos de código abierto, desarrollado como proyecto de la Apache Software Foundation. Sirve para trabajar con grandes volúmenes de información, incluso cuando el procesamiento necesita repartirse entre varias computadoras.
 
 Puede utilizarse para limpiar datos, generar reportes, realizar análisis y preparar información para otros sistemas. Spark admite varios lenguajes: **Scala, Java, Python y SQL**. Cuando se utiliza desde Python, se conoce habitualmente como *PySpark*.
 
@@ -60,15 +61,13 @@ Aquí `valor => valor > 100` es una función anónima. La operación conserva so
 
 #### ¿Qué son los Streams de Java?
 
-Los **Streams de Java** tampoco son una empresa. Son una API incluida en Java (`java.util.stream`) que permite trabajar con elementos de una colección mediante operaciones encadenadas. Por ejemplo, se puede filtrar una lista de pedidos, transformar los valores y obtener una lista con los resultados.
+Los **Streams de Java** son una API incluida en Java (`java.util.stream`) que permite trabajar con elementos de una colección mediante operaciones encadenadas. Por ejemplo, se puede filtrar una lista de pedidos, transformar los valores y obtener una lista con los resultados.
 
 Un *Stream* no es una nueva lista que almacena los elementos; representa una secuencia de procesamiento. Métodos como `filter` y `map` forman pasos intermedios, y una operación final como `toList()` solicita el resultado.
 
 #### ¿Qué proyecto real los utiliza?
 
 Un ejemplo es **Spring Framework**, un proyecto de código abierto que se utiliza para desarrollar aplicaciones en Java. En su código fuente, el archivo `DefaultListableBeanFactory.java` contiene cadenas de Streams que obtienen objetos del sistema y descartan ciertos resultados que no deben incluirse.
-
-Spring Framework es un **producto o framework**, no el nombre de una empresa. Se toma como ejemplo porque su repositorio público permite comprobar directamente el uso de estas funciones en código real.
 
 #### ¿Qué problema resuelven?
 
