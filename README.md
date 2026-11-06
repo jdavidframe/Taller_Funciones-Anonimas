@@ -163,6 +163,7 @@ Fuentes: [Documentación de Python, expresiones lambda](https://docs.python.org/
 
 ## 3. Aplicar: cinco tipos de problemas
 
+
 Se usa el mismo catálogo de diez productos en los tres programas. Cada producto tiene nombre, categoría, precio en dólares y unidades disponibles. El catálogo se encuentra al inicio de `scala/Productos.scala`, `java/Productos.java` y `python/productos.py`.
 
 | Producto | Categoría | Precio ($) | Stock |
@@ -270,15 +271,22 @@ max(productos, key=lambda p: p.precio)
 
 ### Resultados de ejecución
 
-Los archivos completos imprimen los cinco resultados en el mismo orden. Se incluyen las capturas de Java y Python, verificadas al ejecutar los programas, y las salidas de texto correspondientes.
+Los tres programas trabajan con el mismo catálogo e imprimen los resultados de los cinco ejercicios. Las siguientes capturas corresponden a las ejecuciones de cada lenguaje.
 
-![Ejecución de Java](img/java.png)
+**Scala**
 
-![Ejecución de Python](img/python.png)
+![Ejecución de Productos en Scala](img/scala.png)
 
-La ejecución de Scala queda pendiente de comprobar en un equipo con Scala instalado. El archivo `scala/salida_esperada.txt` contiene la salida calculada con los datos del catálogo, pero **no es una captura de ejecución**.
+**Java**
+
+![Ejecución de Productos en Java](img/java.png)
+
+**Python**
+
+![Ejecución de Productos en Python](img/python.png)
 
 ## 4. Ampliar: operaciones nuevas en Scala
+
 
 Los siguientes ejemplos se encuentran en `operaciones/Operaciones.scala`. Usan la lista de la [Parte 3](#3-aplicar-cinco-tipos-de-problemas).
 
@@ -334,9 +342,16 @@ Primero `groupBy` reúne productos de una misma categoría. Después `filter` co
 
 **Salida:** `Perifericos=37, Audio=27`.
 
+### Resultados de ejecución de la Parte 4
+
+Esta captura muestra la ejecución de `operaciones/Operaciones.scala`, con las cuatro operaciones nuevas y la consulta que combina varias de ellas.
+
+![Ejecución de las operaciones nuevas en Scala](img/operaciones.png)
+
 Fuentes: [Scala Collections: operaciones sobre colecciones](https://docs.scala-lang.org/overviews/collections-2.13/seqs.html) y [API de Scala, List](https://www.scala-lang.org/api/2.13.16/scala/collection/immutable/List.html).
 
 ## 5. Comparar y concluir
+
 
 ### 5.1 Comparación entre lenguajes
 
@@ -362,36 +377,50 @@ Su utilidad no se limita a ejercicios pequeños. Apache Spark utiliza operacione
 
 Se recomienda **Java 17 o superior**, **Python 3.10 o superior** y **Scala 2.13 o Scala 3**. No se necesitan dependencias externas para los ejemplos locales.
 
-Desde la carpeta raíz del proyecto:
+Abre una terminal en la carpeta raíz de `funciones-anonimas` y ejecuta el bloque correspondiente.
 
-**Python**
+**Python: `productos.py` (Parte 3)**
+
 ```bash
 python3 python/productos.py
 ```
 
-**Java**
+**Java: `Productos.java` (Parte 3)**
+
 ```bash
 javac java/Productos.java
 java -cp java Productos
 ```
 
-**Scala**, usando el compilador `scalac` y el ejecutable `scala`:
+**Scala: `Productos.scala` (Parte 3)**
+
 ```bash
-mkdir -p salida-scala
-scalac -d salida-scala scala/Productos.scala operaciones/Operaciones.scala
-scala -cp salida-scala Productos
-scala -cp salida-scala Operaciones
+mkdir -p compilados-productos
+scalac -d compilados-productos scala/Productos.scala
+scala -cp compilados-productos Productos
 ```
 
-Si se usa Scala CLI, también se puede ejecutar cada objeto principal indicando ambos archivos:
+**Scala: `Operaciones.scala` (Parte 4)**
+
 ```bash
-scala run scala/Productos.scala operaciones/Operaciones.scala --main-class Productos
+mkdir -p compilados-operaciones
+scalac -d compilados-operaciones scala/Productos.scala operaciones/Operaciones.scala
+scala -cp compilados-operaciones Operaciones
+```
+
+En la Parte 4 también se compila `scala/Productos.scala` porque `Operaciones.scala` toma la lista de productos de ese archivo mediante `Productos.productos`. Aunque se compilen juntos, el comando ejecuta únicamente el `main` de `Operaciones`.
+
+**Alternativa con Scala CLI**
+
+```bash
+scala run scala/Productos.scala --main-class Productos
 scala run scala/Productos.scala operaciones/Operaciones.scala --main-class Operaciones
 ```
 
-Las capturas adicionales de Scala deben tomarse al ejecutar los dos últimos comandos. Los archivos `.class` generados por Java y la carpeta `salida-scala` no se incluyen porque se crean durante la compilación.
+Cada comando ejecuta el objeto indicado. Las carpetas de compilación se generan localmente y no forman parte de los archivos del repositorio.
 
 ## Referencias
+
 
 - Apache Software Foundation. (s. f.). *RDD programming guide*. https://spark.apache.org/docs/latest/rdd-programming-guide.html
 - Apache Software Foundation. (s. f.). *Apache Spark: Unified engine for large-scale data analytics*. https://spark.apache.org/
